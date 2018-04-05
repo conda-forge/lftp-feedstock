@@ -38,6 +38,7 @@ if [ -n "$VS_MAJOR" ] ; then
     autoreconf "${autoreconf_args[@]}"
 fi
 
+unset SSL_CERT_FILE
 export PKG_CONFIG_LIBDIR=$uprefix/lib/pkgconfig:$uprefix/share/pkgconfig
 export LDFLAGS="$LDFLAGS -Wl,-rpath -Wl,$PREFIX/lib -L$PREFIX/lib"
 export CFLAGS="$CFLAGS -I$PREFIX/include"
@@ -51,7 +52,7 @@ configure_args=(
     --with-openssl
     --with-readline=$PREFIX
     --without-libresolv
-    --without-libidn
+    --without-libidn2
 )
 
 ./configure "${configure_args[@]}"
