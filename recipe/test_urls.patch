@@ -1,0 +1,22 @@
+--- tests/ftp-cls-l.cc.org	2018-04-05 21:09:09.851751829 +0000
++++ tests/ftp-cls-l.cc	2018-04-05 21:07:51.926895565 +0000
+@@ -8,7 +8,7 @@
+ {
+    program_name=argv[0];
+    JobRef<CmdExec> exec(new CmdExec(0,0));
+-   exec->FeedCmd("open ftp://ftp.yar.ru/pub/source/lftp/\n");
++   exec->FeedCmd("open ftp://ftp.gnu.org/gnu/\n");
+    exec->FeedCmd("cls -l\n");
+    exec->WaitDone();
+    return exec->ExitCode();
+--- tests/ftp-list.cc.org	2018-04-05 21:09:19.858733369 +0000
++++ tests/ftp-list.cc	2018-04-05 21:06:19.203066600 +0000
+@@ -12,7 +12,7 @@
+ {
+    program_name=argv[0];
+ 
+-   FileAccess *f=FileAccess::New("ftp","ftp.yar.ru");
++   FileAccess *f=FileAccess::New("ftp","ftp.gnu.org");
+    if(!f)
+    {
+       fprintf(stderr,"ftp: unknown protocol, cannot create ftp session\n");
