@@ -1,0 +1,21 @@
+c_compiler:
+- toolchain_c
+cxx_compiler:
+- toolchain_cxx
+expat:
+- '2.2'
+ncurses:
+- '6.1'
+pin_run_as_build:
+  expat:
+    max_pin: x.x
+  ncurses:
+    max_pin: x.x
+  readline:
+    max_pin: x
+  zlib:
+    max_pin: x.x
+readline:
+- '7.0'
+zlib:
+- '1.2'
