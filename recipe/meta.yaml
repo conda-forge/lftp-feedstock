@@ -1,6 +1,6 @@
 {% set name = "lftp" %}
-{% set version = "4.7.7" %}
-{% set sha256 = "7bce216050094a1146ed05bed8fe5b3518224764ffe98884a848d44dc76fff8f" %}
+{% set version = "4.8.4" %}
+{% set sha256 = "19f3a4236558fbdb88eec01bc9d693c51b122d23487b6bedad4cc67ae6825fc2" %}
 {% set am_version = "1.15" %}
 {% set native = 'm2w64-' if win else '' %}
 
