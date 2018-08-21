@@ -1,6 +1,6 @@
 {% set name = "lftp" %}
-{% set version = "4.7.7" %}
-{% set sha256 = "7bce216050094a1146ed05bed8fe5b3518224764ffe98884a848d44dc76fff8f" %}
+{% set version = "4.8.4" %}
+{% set sha256 = "19f3a4236558fbdb88eec01bc9d693c51b122d23487b6bedad4cc67ae6825fc2" %}
 {% set am_version = "1.15" %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -20,6 +20,8 @@ build:
 
 requirements:
   build:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
     - posix                        # [win]
     - python                       # [win]
     - m2-bison                     # [win]
@@ -27,26 +29,25 @@ requirements:
     - m2-automake{{ am_version }}  # [win]
     - m2-libtool                   # [win]
     - {{native}}pkg-config
-    - {{native}}toolchain
     - {{native}}libiconv
     - {{native}}gettext
-    - {{native}}xz 5.2.*
-    - readline 6.2*                # [not win]
-    - ncurses 5.9*                 # [not win]
+    - {{native}}xz
+    - readline                     # [not win]
+    - ncurses                      # [not win]
     - {{native}}openssl
     - expat
-    - zlib 1.2.*
+    - zlib
     - m2-libreadline               # [win]
     - m2-ncurses                   # [win]
 
   run:
     - {{native}}openssl
     - expat
-    - zlib 1.2.*
+    - zlib
     - {{native}}libiconv
     - {{native}}gettext
-    - readline 6.2*                # [not win]
-    - ncurses 5.9*                 # [not win]
+    - readline                     # [not win]
+    - ncurses                      # [not win]
     - m2-libreadline               # [win]
     - m2-ncurses                   # [win]
 
@@ -70,3 +71,4 @@ about:
 extra:
   recipe-maintainers:
     - epruesse
+    - croth1
