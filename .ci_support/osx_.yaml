@@ -1,0 +1,31 @@
+MACOSX_DEPLOYMENT_TARGET:
+- '10.9'
+c_compiler:
+- toolchain_c
+channel_sources:
+- conda-forge,defaults
+channel_targets:
+- conda-forge main
+cxx_compiler:
+- toolchain_cxx
+expat:
+- '2.2'
+macos_machine:
+- x86_64-apple-darwin13.4.0
+macos_min_version:
+- '10.9'
+ncurses:
+- '6.1'
+pin_run_as_build:
+  expat:
+    max_pin: x.x
+  ncurses:
+    max_pin: x.x
+  readline:
+    max_pin: x
+  zlib:
+    max_pin: x.x
+readline:
+- '7.0'
+zlib:
+- '1.2'
