@@ -1,22 +1,26 @@
 c_compiler:
-- toolchain_c
+- gcc
 channel_sources:
 - conda-forge,defaults
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- toolchain_cxx
+- gxx
 docker_image:
-- condaforge/linux-anvil
+- condaforge/linux-anvil-comp7
 expat:
 - '2.2'
 ncurses:
 - '6.1'
+openssl:
+- 1.0.2
 pin_run_as_build:
   expat:
     max_pin: x.x
   ncurses:
     max_pin: x.x
+  openssl:
+    max_pin: x.x.x
   readline:
     max_pin: x
   zlib:
