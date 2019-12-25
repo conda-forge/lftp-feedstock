@@ -1,6 +1,4 @@
 {% set version = "4.9.0" %}
-{% set am_version = "1.15" %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: lftp
@@ -19,37 +17,26 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - posix                        # [win]
-    - m2-bison                     # [win]
-    - m2-autoconf                  # [win]
-    - m2-automake{{ am_version }}  # [win]
-    - m2-libtool                   # [win]
-    - {{native}}pkg-config
+    - pkg-config
 
   host:
-    - python                       # [win]
     - openssl
     - readline                     # [not win]
     - ncurses                      # [not win]
-    - {{native}}openssl
     - expat
     - zlib
-    - m2-libreadline               # [win]
-    - m2-ncurses                   # [win]
-    - {{native}}libiconv
-    - {{native}}gettext
-    - {{native}}xz
+    - libiconv
+    - gettext
+    - xz
 
   run:
-    - {{native}}openssl
+    - openssl
     - expat
     - zlib
-    - {{native}}libiconv
-    - {{native}}gettext
+    - libiconv
+    - gettext
     - readline                     # [not win]
     - ncurses                      # [not win]
-    - m2-libreadline               # [win]
-    - m2-ncurses                   # [win]
 
 test:
   commands:
