@@ -9,7 +9,7 @@ configure_args=(
     --with-openssl
     --with-readline=$PREFIX
     --without-libresolv
-    --without-libidn
+    --with-expat=$PREFIX
 )
 
 ./configure "${configure_args[@]}"
