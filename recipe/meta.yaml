@@ -11,7 +11,7 @@ source:
   sha256: 19f3a4236558fbdb88eec01bc9d693c51b122d23487b6bedad4cc67ae6825fc2
 
 build:
-  number: 1001
+  number: 1002
   # Windows build fails due to missing [n]curses.h or terminfo.h
   skip: True                       # [win]
 
