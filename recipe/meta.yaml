@@ -1,4 +1,4 @@
-{% set version = "4.8.4" %}
+{% set version = "4.9.2" %}
 {% set am_version = "1.15" %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,12 +8,12 @@ package:
 
 source:
   url: http://lftp.yar.ru/ftp/lftp-{{ version }}.tar.gz
-  sha256: 19f3a4236558fbdb88eec01bc9d693c51b122d23487b6bedad4cc67ae6825fc2
+  sha256: a37589c61914073f53c5da0e68bd233b41802509d758a022000e1ae2076da733
 
 build:
-  number: 1001
+  number: 0
   # Windows build fails due to missing [n]curses.h or terminfo.h
-  skip: True                       # [win]
+  skip: true  # [win]
 
 requirements:
   build:
@@ -24,28 +24,28 @@ requirements:
     - m2-autoconf                  # [win]
     - m2-automake{{ am_version }}  # [win]
     - m2-libtool                   # [win]
-    - {{native}}pkg-config
+    - {{ native }}pkg-config
 
   host:
     - python                       # [win]
     - openssl
     - readline                     # [not win]
     - ncurses                      # [not win]
-    - {{native}}openssl
+    - {{ native }}openssl
     - expat
     - zlib
     - m2-libreadline               # [win]
     - m2-ncurses                   # [win]
-    - {{native}}libiconv
-    - {{native}}gettext
-    - {{native}}xz
+    - {{ native }}libiconv
+    - {{ native }}gettext
+    - {{ native }}xz
 
   run:
-    - {{native}}openssl
+    - {{ native }}openssl
     - expat
     - zlib
-    - {{native}}libiconv
-    - {{native}}gettext
+    - {{ native }}libiconv
+    - {{ native }}gettext
     - readline                     # [not win]
     - ncurses                      # [not win]
     - m2-libreadline               # [win]
