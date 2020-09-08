@@ -41,6 +41,7 @@ requirements:
     - {{ native }}xz
 
   run:
+    - python                       # [win]
     - {{ native }}openssl
     - expat
     - zlib
@@ -57,7 +58,7 @@ test:
 
 about:
   home: https://lftp.yar.ru/
-  license: GPL_v3
+  license: GPL-3.0-or-later
   license_family: GPL
   license_file: COPYING
   summary: |
