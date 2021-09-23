@@ -8,10 +8,12 @@ jobs:
     vmImage: macOS-10.15
   strategy:
     matrix:
-      osx_64_:
-        CONFIG: osx_64_
+      osx_64_openssl1.1.1:
+        CONFIG: osx_64_openssl1.1.1
         UPLOAD_PACKAGES: 'True'
-    maxParallel: 8
+      osx_64_openssl3:
+        CONFIG: osx_64_openssl3
+        UPLOAD_PACKAGES: 'True'
   timeoutInMinutes: 360
 
   steps:
