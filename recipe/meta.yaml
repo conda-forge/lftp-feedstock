@@ -1,4 +1,4 @@
-{% set version = "4.9.2" %}
+{% set version = "4.9.3" %}
 {% set am_version = "1.15" %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,16 +8,17 @@ package:
 
 source:
   url: http://lftp.yar.ru/ftp/lftp-{{ version }}.tar.gz
-  sha256: a37589c61914073f53c5da0e68bd233b41802509d758a022000e1ae2076da733
+  sha256: 68116cc184ab660a78a4cef323491e89909e5643b59c7b5f0a14f7c2b20e0a29
 
 build:
-  number: 1
+  number: 0
   # Windows build fails due to missing [n]curses.h or terminfo.h
   skip: true  # [win]
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - posix                        # [win]
     - m2-bison                     # [win]
