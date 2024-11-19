@@ -11,7 +11,7 @@ source:
   sha256: a37589c61914073f53c5da0e68bd233b41802509d758a022000e1ae2076da733
 
 build:
-  number: 1
+  number: 2
   # Windows build fails due to missing [n]curses.h or terminfo.h
   skip: true  # [win]
 
@@ -19,6 +19,7 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - make
     - posix                        # [win]
     - m2-bison                     # [win]
     - m2-autoconf                  # [win]
