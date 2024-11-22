@@ -1,6 +1,4 @@
 {% set version = "4.9.3" %}
-{% set am_version = "1.15" %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: lftp
@@ -12,7 +10,6 @@ source:
 
 build:
   number: 0
-  # Windows build fails due to missing [n]curses.h or terminfo.h
   skip: true  # [win]
 
 requirements:
@@ -21,38 +18,18 @@ requirements:
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - make
-    - posix                        # [win]
-    - m2-bison                     # [win]
-    - m2-autoconf                  # [win]
-    - m2-automake{{ am_version }}  # [win]
-    - m2-libtool                   # [win]
-    - {{ native }}pkg-config
+    - pkg-config
 
   host:
-    - python                       # [win]
     - openssl
-    - readline                     # [not win]
-    - ncurses                      # [not win]
-    - {{ native }}openssl
+    - readline
+    - ncurses
+    - openssl
     - expat
     - zlib
-    - m2-libreadline               # [win]
-    - m2-ncurses                   # [win]
-    - {{ native }}libiconv
-    - {{ native }}gettext
-    - {{ native }}xz
-
-  run:
-    - python                       # [win]
-    - {{ native }}openssl
-    - expat
-    - zlib
-    - {{ native }}libiconv
-    - {{ native }}gettext
-    - readline                     # [not win]
-    - ncurses                      # [not win]
-    - m2-libreadline               # [win]
-    - m2-ncurses                   # [win]
+    - libiconv
+    - gettext
+    - xz
 
 test:
   commands:
