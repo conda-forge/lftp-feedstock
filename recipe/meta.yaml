@@ -25,11 +25,8 @@ requirements:
     - readline
     - ncurses
     - openssl
-    - expat
     - zlib
     - libiconv
-    - gettext
-    - xz
 
 test:
   commands:
