@@ -1,6 +1,4 @@
-{% set version = "4.9.2" %}
-{% set am_version = "1.15" %}
-{% set native = 'm2w64-' if win else '' %}
+{% set version = "4.9.3" %}
 
 package:
   name: lftp
@@ -8,49 +6,27 @@ package:
 
 source:
   url: http://lftp.yar.ru/ftp/lftp-{{ version }}.tar.gz
-  sha256: a37589c61914073f53c5da0e68bd233b41802509d758a022000e1ae2076da733
+  sha256: 68116cc184ab660a78a4cef323491e89909e5643b59c7b5f0a14f7c2b20e0a29
 
 build:
-  number: 1
-  # Windows build fails due to missing [n]curses.h or terminfo.h
+  number: 0
   skip: true  # [win]
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
-    - posix                        # [win]
-    - m2-bison                     # [win]
-    - m2-autoconf                  # [win]
-    - m2-automake{{ am_version }}  # [win]
-    - m2-libtool                   # [win]
-    - {{ native }}pkg-config
+    - make
+    - pkg-config
 
   host:
-    - python                       # [win]
     - openssl
-    - readline                     # [not win]
-    - ncurses                      # [not win]
-    - {{ native }}openssl
-    - expat
+    - readline
+    - ncurses
+    - openssl
     - zlib
-    - m2-libreadline               # [win]
-    - m2-ncurses                   # [win]
-    - {{ native }}libiconv
-    - {{ native }}gettext
-    - {{ native }}xz
-
-  run:
-    - python                       # [win]
-    - {{ native }}openssl
-    - expat
-    - zlib
-    - {{ native }}libiconv
-    - {{ native }}gettext
-    - readline                     # [not win]
-    - ncurses                      # [not win]
-    - m2-libreadline               # [win]
-    - m2-ncurses                   # [win]
+    - libiconv
 
 test:
   commands:
