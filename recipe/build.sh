@@ -1,4 +1,6 @@
 #!/bin/bash
+# Get an updated config.sub and config.guess
+cp $BUILD_PREFIX/share/gnuconfig/config.* ./build-aux
 
 configure_args=(
     --prefix=$PREFIX
@@ -14,7 +16,9 @@ configure_args=(
 ./configure "${configure_args[@]}"
 make -j$CPU_COUNT
 make install
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR}" != "" ]]; then
 make check
+fi
 
 # Remove documentation
 rm -rf $uprefix/share/man $uprefix/share/doc
