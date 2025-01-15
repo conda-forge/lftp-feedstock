@@ -19,10 +19,12 @@ requirements:
     - {{ compiler('cxx') }}
     - autoconf
     - automake
+    - gettext
     - m4
     - make
     - pkg-config
   host:
+    - libtool
     - openssl
     - readline
     - ncurses
