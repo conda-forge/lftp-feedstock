@@ -9,7 +9,7 @@ source:
   sha256: 68116cc184ab660a78a4cef323491e89909e5643b59c7b5f0a14f7c2b20e0a29
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
@@ -17,9 +17,10 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
+    - autoconf
+    - autoreconf
     - make
     - pkg-config
-
   host:
     - openssl
     - readline
@@ -35,7 +36,6 @@ test:
 about:
   home: https://lftp.yar.ru/
   license: GPL-3.0-or-later
-  license_family: GPL
   license_file: COPYING
   summary: |
     LFTP is a sophisticated file transfer program supporting a number of network protocols
@@ -45,5 +45,6 @@ about:
 
 extra:
   recipe-maintainers:
+    - danielnachun
     - epruesse
     - croth1

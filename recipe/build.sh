@@ -11,6 +11,7 @@ configure_args=(
     --without-libresolv
 )
 
+autoreconf --force --verbose --install
 ./configure "${configure_args[@]}"
 make -j$CPU_COUNT
 make install
