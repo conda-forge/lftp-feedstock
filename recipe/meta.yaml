@@ -23,6 +23,7 @@ requirements:
     - m4
     - make
     - pkg-config
+    - xz-tools
   host:
     - libtool
     - openssl
