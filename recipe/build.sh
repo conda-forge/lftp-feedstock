@@ -15,6 +15,12 @@ configure_args=(
     --without-libresolv
 )
 
+if [[ ${target_platform} == "osx-arm64" ]]; then
+    export ac_no_dev_ptmx=1
+    export ac_no_dev_ptc=1
+    export CFLAGS="${CFLAGS} -DHAVE_DEV_PTMX=1"
+fi
+
 autoreconf --force --verbose --install
 ./configure "${configure_args[@]}"
 make -j$CPU_COUNT
