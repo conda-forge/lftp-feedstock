@@ -4,8 +4,8 @@ set -o xtrace -o nounset -o pipefail -o errexit
 
 configure_args=(
     --prefix=$PREFIX
+    --build=${BUILD}
     --host=${HOST}
-    --target=${TARGET}
     --with-sysroot=$PREFIX
     --disable-dependency-tracking
     --disable-silent-rules
