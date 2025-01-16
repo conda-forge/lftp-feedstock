@@ -2,6 +2,8 @@
 
 configure_args=(
     --prefix=$PREFIX
+    --host=${HOST}
+    --target=${TARGET}
     --with-sysroot=$PREFIX
     --disable-dependency-tracking
     --disable-silent-rules
