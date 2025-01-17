@@ -24,14 +24,6 @@ fi
 ./configure "${configure_args[@]}"
 make -j$CPU_COUNT
 make install
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR:-}" != "" ]]; then
 make check
-
-# Remove documentation
-rm -rf ${PREFIX}/share/man ${PREFIX}/share/doc
-
-# Non-Windows: prefer dynamic libraries to static, and dump libtool helper files
-if [ -z "$VS_MAJOR" ] ; then
-    for lib_ident in Xp; do
-        rm -f ${PREFIX}/lib/lib${lib_ident}.la ${PREFIX}/lib/lib${lib_ident}.a
-    done
 fi
