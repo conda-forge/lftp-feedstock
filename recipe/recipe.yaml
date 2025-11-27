@@ -1,22 +1,25 @@
-{% set version = "4.9.3" %}
+schema_version: 1
+
+context:
+  version: 4.9.3
 
 package:
   name: lftp
-  version: {{ version }}
+  version: ${{ version }}
 
 source:
-  url: http://lftp.yar.ru/ftp/lftp-{{ version }}.tar.gz
+  url: http://lftp.yar.ru/ftp/lftp-${{ version }}.tar.gz
   sha256: 68116cc184ab660a78a4cef323491e89909e5643b59c7b5f0a14f7c2b20e0a29
 
 build:
-  number: 1
-  skip: true  # [win]
+  number: 2
+  skip: win
 
 requirements:
   build:
-    - {{ compiler('c') }}
-    - {{ stdlib("c") }}
-    - {{ compiler('cxx') }}
+    - ${{ compiler('c') }}
+    - ${{ stdlib("c") }}
+    - ${{ compiler('cxx') }}
     - autoconf
     - automake
     - gettext
@@ -34,12 +37,11 @@ requirements:
     - zlib
     - libiconv
 
-test:
-  commands:
-    - lftp --version
+tests:
+  - script:
+      - lftp --version
 
 about:
-  home: https://lftp.yar.ru/
   license: GPL-3.0-or-later
   license_file: COPYING
   summary: |
@@ -47,6 +49,7 @@ about:
     (ftp, http, sftp, fish, torrent). Like BASH, it has job control and uses the readline
     library for input. It has bookmarks, a built-in mirror command, and can transfer
     several files in parallel. It was designed with reliability in mind.
+  homepage: https://lftp.yar.ru/
 
 extra:
   recipe-maintainers:
